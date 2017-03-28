@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="snerThe Python interface to the Stanford NER Server.
+Stanford NER Project
+Home Page
+
+Ner Server
+
+
+Installation1pip install sner
+or
+1python setup install
+Startrun these commands to start java server
+12">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/sner.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="snerThe Python interface to the Stanford NER Server.
+Stanford NER Project
+Home Page
+
+Ner Server
+
+
+Installation1pip install sner
+or
+1python setup install
+Startrun these commands to start java server
+12">
+<meta property="og:updated_time" content="2017-03-28T18:31:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="snerThe Python interface to the Stanford NER Server.
+Stanford NER Project
+Home Page
+
+Ner Server
+
+
+Installation1pip install sner
+or
+1python setup install
+Startrun these commands to start java server
+12">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/sner.html" class="article-date">
+  <time datetime="2017-03-28T18:31:39.000Z" itemprop="datePublished">2017-03-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="sner"><a href="#sner" class="headerlink" title="sner"></a>sner</h1><p>The Python interface to the Stanford NER Server.</p>
+<h1 id="Stanford-NER-Project"><a href="#Stanford-NER-Project" class="headerlink" title="Stanford NER Project"></a>Stanford NER Project</h1><ul>
+<li><p><a href="https://nlp.stanford.edu/software/CRF-NER.shtml" target="_blank" rel="external">Home Page</a></p>
+</li>
+<li><p><a href="https://nlp.stanford.edu/software/crf-faq.shtml#cc" target="_blank" rel="external">Ner Server</a></p>
+</li>
+</ul>
+<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install sner</div></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python setup install</div></pre></td></tr></table></figure>
+<h1 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h1><p>run these commands to start java server</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> your_stanford_ner_dir</div><div class="line">java -Djava.ext.dirs=./lib -cp stanford-ner.jar edu.stanford.nlp.ie.NERServer -port 9199 -loadClassifier ./classifiers/english.all.3class.distsim.crf.ser.gz</div></pre></td></tr></table></figure>
+<p>Then the sner can worked like this</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sner <span class="keyword">import</span> Ner</div><div class="line"></div><div class="line">test_string = <span class="string">"Alice went to the Museum of Natural History."</span></div><div class="line">tagger = Ner(host=<span class="string">'localhost'</span>,port=<span class="number">9199</span>)</div><div class="line">print(tagger.get_entities(test_string))</div></pre></td></tr></table></figure>
+<p>result is</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[(<span class="string">'Alice'</span>, <span class="string">'PERSON'</span>),</div><div class="line"> (<span class="string">'went'</span>, <span class="string">'O'</span>),</div><div class="line"> (<span class="string">'to'</span>, <span class="string">'O'</span>),</div><div class="line"> (<span class="string">'the'</span>, <span class="string">'O'</span>),</div><div class="line"> (<span class="string">'Museum'</span>, <span class="string">'ORGANIZATION'</span>),</div><div class="line"> (<span class="string">'of'</span>, <span class="string">'ORGANIZATION'</span>),</div><div class="line"> (<span class="string">'Natural'</span>, <span class="string">'ORGANIZATION'</span>),</div><div class="line"> (<span class="string">'History'</span>, <span class="string">'ORGANIZATION'</span>),</div><div class="line"> (<span class="string">'.'</span>, <span class="string">'O'</span>)]</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/sner.html" data-id="cj0tvtzue000066ax3kauadio" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Arkiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Siste innlegg</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/29/sner/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
